@@ -2,16 +2,18 @@ function addUsers(email,users){
     if(email.includes("@.com")||email.includes("@.vn")){
         if(users.includes(email)){
             alert("tài khoản đã tồn tại");
-            return undefined;
+            return false;
         }
         
         alert("đăng ký thành công");
-        return email;
+        return true;
     }
     alert("email không đúng cú pháp");
-    return undefined;
+    return false;
 }
 let users=["1@.com"];
 let email=prompt("Mời nhập vào email");
-users.push(addUsers(email,users));
+if(addUsers(email,users)){
+    users.push(email);
+}
 console.log(users);
